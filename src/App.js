@@ -1,13 +1,14 @@
-import './App.css';
-import List from './List'
+import React, { useState } from "react";
+import Button from "./components/Button/Button";
+import Input from "./components/Input/Input";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Todo</h1>
-      <List />
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div>
+            <Button />
+            <Input />
+        </div>
+    );
+};
 
 export default App;
