@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from "react";
+import View from "../View/View";
 
-export default function TodoItem({title, id, deleteTodo}) {
-    return (
-        <li>
-            {title} <button title='delete' onClick={()=> deleteTodo(id)}>delete</button>
-        </li>
-    )
+export default function TodoItem({ title, id, deleteTodo, modifyTodo }) {
+  const [edit, setEdit] = useState(false);
+
+  return (
+    <li>
+      <View
+        edit={edit}
+        id={id}
+        modifyTodo={modifyTodo}
+        setEdit={setEdit}
+        title={title}
+        deleteTodo={deleteTodo}
+      />
+    </li>
+  );
 }

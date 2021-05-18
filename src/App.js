@@ -18,6 +18,10 @@ const App = () => {
         setTodos(todos.filter(todo=> todo.id !== id))
     }
 
+    const modifyTodo = (id, newValue) => {
+        setTodos(todos.map(todo=> todo.id===id? {...todo, title:newValue} : todo))
+    }
+
     const getId = () => {
         return Math.floor(Math.random()*100000)
     }
@@ -36,7 +40,7 @@ const App = () => {
         <div>
             <Form addTodo={addTodo}/>
         <ul>
-            {todos ? todos.map(todo=> <TodoItem title={todo.title} id={todo.id} key={todo.id} deleteTodo={deleteTodo}/>) : <span title='loading'>loading...</span>}           
+            {todos ? todos.map(todo=> <TodoItem title={todo.title} id={todo.id} key={todo.id} modifyTodo={modifyTodo} deleteTodo={deleteTodo}/>) : <span title='loading'>loading...</span>}           
         </ul>
         </div>
     )
