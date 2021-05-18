@@ -1,5 +1,6 @@
 import {render, cleanup} from '@testing-library/react'
 import fetchService from './service/fetch/fetchService'
+import TodoItem from './components/TodoItem/TodoItem'
 import App from './App'
 
 jest.doMock('./service/fetch/fetchService') 
@@ -12,8 +13,9 @@ describe('the App component', ()=>{
         cleanup();
     });
 
+
     // it('should get todoData', ()=>{
-    //     fetchService()
-    //     expect(fetchService).toHaveBeenCalledWith('https://jsonplaceholder.typicode.com/todos')
+    //     // fetchService()
+    //     expect(fetchService()).toHaveBeenCalledWith('https://jsonplaceholder.typicode.com/todos')
     // })
 })
