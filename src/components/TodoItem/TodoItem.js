@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TodoItem({ title, id, deleteTodo }) {
+export default function TodoItem({ title, id, deleteTodo, completeTodo }) {
   return (
     <li>
       {title}{" "}

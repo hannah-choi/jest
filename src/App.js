@@ -1,8 +1,8 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import fetchService from "./service/fetch/fetchService";
-import TodoItem from "./components/TodoItem/TodoItem";
 import Form from "./components/Form/Form";
+import List from "./components/List/List";
 
 const App = () => {
   const [todos, setTodos] = useState(null);
@@ -36,20 +36,11 @@ const App = () => {
   return (
     <div>
       <Form addTodo={addTodo} />
-      <ul>
-        {todos ? (
-          todos.map((todo) => (
-            <TodoItem
-              title={todo.title}
-              id={todo.id}
-              key={todo.id}
-              deleteTodo={deleteTodo}
-            />
-          ))
-        ) : (
-          <span title="loading">loading...</span>
-        )}
-      </ul>
+      {todos ? (
+        <List todos={todos} deleteTodo={deleteTodo} />
+      ) : (
+        <span title="loading">loading...</span>
+      )}
     </div>
   );
 };
