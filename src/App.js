@@ -1,11 +1,12 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import fetchService from "./service/fetch/fetchService";
+import fetchService from "./service/fetch/fetch";
 import Form from "./components/Form/Form";
 import List from "./components/List/List";
 
 const App = () => {
   const [todos, setTodos] = useState(null);
+  const [show, setShow] = useState(true);
 
   const addTodo = (e) => {
     // add todo
@@ -36,11 +37,12 @@ const App = () => {
   return (
     <div>
       <Form addTodo={addTodo} />
-      {todos ? (
-        <List todos={todos} deleteTodo={deleteTodo} />
-      ) : (
-        <span title="loading">loading...</span>
-      )}
+      {show &&
+        (todos ? (
+          <List todos={todos} deleteTodo={deleteTodo} />
+        ) : (
+          <span title="loading">loading...</span>
+        ))}
     </div>
   );
 };
